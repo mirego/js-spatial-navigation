@@ -863,6 +863,8 @@
           if (!fireEvent(currentFocusedElement, 'enter-down')) {
             return preventDefault();
           }
+          preventDefault();
+          currentFocusedElement.click();
         }
       }
       return;
