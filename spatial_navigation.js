@@ -863,8 +863,10 @@
           if (!fireEvent(currentFocusedElement, 'enter-down')) {
             return preventDefault();
           }
-          preventDefault();
-          currentFocusedElement.click();
+          if(evt.keyCode !== 13) {
+            preventDefault();
+            currentFocusedElement.click(); 
+          }
         }
       }
       return;
