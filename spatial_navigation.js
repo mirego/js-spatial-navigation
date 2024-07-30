@@ -19,7 +19,9 @@
     '40': 'down'
   };
 
-  var DEFAULT_SELECT_KEY_CODES = [13];
+  var ENTER_KEY_CODE = 13;
+
+  var DEFAULT_SELECT_KEY_CODES = [ENTER_KEY_CODE];
 
   /************************/
   /* Global Configuration */
@@ -863,8 +865,10 @@
           if (!fireEvent(currentFocusedElement, 'enter-down')) {
             return preventDefault();
           }
-          preventDefault();
-          currentFocusedElement.click();
+          if (evt.keyCode !== ENTER_KEY_CODE) {
+            preventDefault();
+            currentFocusedElement.click(); 
+          }
         }
       }
       return;
